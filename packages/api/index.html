@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script type="module" src="dev_server/main.ts"></script>
+
+    <form id="search_form">
+      <section>
+        <div>
+          <input
+            id="action_content"
+            type="radio"
+            name="action"
+            value="content"
+            checked
+          />
+          <label for="action_content">详情</label>
+          <input type="radio" id="action_search" name="action" value="search" />
+          <label for="action_search">搜索</label>
+        </div>
+      </section>
+      <section>
+        <label for="indexes">索引</label>
+        <select name="indexes" class="indexes_select"></select>
+      </section>
+      <section>
+        <label for="value">指标</label>
+        <input type="text" name="value" />
+      </section>
+      <input type="submit" value="提交" />
+    </form>
+
+    <pre id="result"></pre>
+
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        margin: 0 auto;
+      }
+      section {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 1em;
+      }
+      section > label {
+        width: 5em;
+      }
+      section > input {
+        flex-grow: 1;
+      }
+      #result {
+        width: 50%;
+        margin: 0 auto;
+      }
+    </style>
+  </body>
+</html>

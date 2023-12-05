@@ -1,0 +1,21 @@
+{
+  "name": "@tomestone/api",
+  "version": "0.1.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fexios": "^1.5.0"
+  },
+  "devDependencies": {
+    "vite": "^5.0.4"
+  }
+}

@@ -1,0 +1,23 @@
+lockfileVersion: '6.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+dependencies:
+  fexios:
+    specifier: ^1.5.0
+    version: 1.5.0
+
+packages:
+
+  /fexios@1.5.0:
+    resolution: {integrity: sha512-bl4hlZCowwk6yCcbH2kV5kneRb8nfLkMngyjGoq1+6UXXBAd+RgJI0aObM1Kb0OW7knPfoJ6wW3ZN1tppi8tiQ==}
+    engines: {node: ^16.15.0 || >=18.0.0}
+    dependencies:
+      tslib: 2.6.2
+    dev: false
+
+  /tslib@2.6.2:
+    resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
+    dev: false
