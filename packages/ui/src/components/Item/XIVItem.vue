@@ -24,9 +24,16 @@ XIVCard.xiv-item
 
     //- 可装备道具主属性
     XIVItemEquipSlot(v-if='item.EquipSlotCategory', v-bind='item')
+    XIVAttrsGroup(
+      v-if='!item.EquipSlotCategory && item.LevelItem > 1',
+      :attrs='[{ label: "品级", value: item.LevelItem }]',
+      :cols='1',
+      m-y-2
+    )
     //- 道具简介
     XIVAttrsGroup(
       v-if='item.Description',
+      header='',
       :attrs='[{ value: item.Description }]',
       :cols='1'
     )
