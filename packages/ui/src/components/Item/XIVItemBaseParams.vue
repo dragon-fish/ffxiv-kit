@@ -7,7 +7,7 @@ import {} from 'vue'
 import type {
   XIVItemData,
   XIVBaseParam,
-} from '@tomestone/api/dist/types/XIVItem'
+} from '@ffxiv-kit/api/dist/types/XIVItem'
 
 const props = defineProps<XIVItemData>()
 

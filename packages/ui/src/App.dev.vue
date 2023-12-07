@@ -11,7 +11,7 @@ main
 </template>
 
 <script setup lang="ts">
-import type { XIVItemData } from '@tomestone/api/dist/types/XIVItem'
+import type { XIVItemData } from '@ffxiv-kit/api/dist/types/XIVItem'
 
 const api = useXIVApi()
 

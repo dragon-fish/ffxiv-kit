@@ -4,7 +4,7 @@ XIVAttrsGroup.item-food-params(header='特殊', :attrs='attrs', :cols='1')
 
 <script setup lang="ts">
 import {} from 'vue'
-import type { XIVItemData } from '@tomestone/api/dist/types/XIVItem'
+import type { XIVItemData } from '@ffxiv-kit/api/dist/types/XIVItem'
 
 const props = defineProps<XIVItemData>()
 

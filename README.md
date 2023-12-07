@@ -1,8 +1,8 @@
-# Tomestone
+# FFXIV Kit
 
 WIP
 
-Yet another FF:XIV Toolkit for web pages.
+Yet another _Final Fantasy: XIV_ toolkits for web page.
 
 ---
 

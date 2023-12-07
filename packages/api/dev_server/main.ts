@@ -22,7 +22,7 @@ window.xiv = api
 
       e.preventDefault()
       printResult('loading...')
-      api.contents(type as any, +id).then((data) => {
+      api.contents.get(type as any, +id).then((data) => {
         printResult([type, id, data])
       })
     }
@@ -60,7 +60,7 @@ window.xiv = api
     switch (action) {
       case 'search':
         api
-          .search(value, [], [indexes as any])
+          .search(value, { indexes: [indexes as any] })
           .then((data) => {
             printResult(data)
           })
@@ -69,8 +69,10 @@ window.xiv = api
           })
         break
       case 'content':
-        api
-          .contents(indexes as any, value ? value as any : undefined)
+        ;(indexes
+          ? api.contents.get(indexes as any, value ? (value as any) : undefined)
+          : api.contents.indexes()
+        )
           .then((data) => {
             printResult(data)
           })

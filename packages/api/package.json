@@ -1,5 +1,5 @@
 {
-  "name": "@tomestone/api",
+  "name": "@ffxiv-kit/api",
   "version": "0.1.0",
   "description": "",
   "main": "dist/index.js",

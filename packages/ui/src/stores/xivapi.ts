@@ -1,4 +1,4 @@
-import { XIVApi } from '@tomestone/api'
+import { XIVApi } from '@ffxiv-kit/api'
 
 export const useXIVApi = defineStore('xivapi', () => {
   const api = new XIVApi()
