@@ -9,6 +9,9 @@
     "dev": "vite",
     "build": "tsc"
   },
+  "files": [
+    "dist"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",

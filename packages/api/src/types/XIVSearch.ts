@@ -1,11 +1,7 @@
-import { XIVContentIndex } from './XIVContent'
+import { XIVContentIndex, XIVContentIndexItem } from './XIVContent'
 import { XIVPagination } from './XIVPagination'
 
-export interface XIVSearchResult {
-  ID: number
-  Icon: string
-  Name: string
-  Url: string
+export interface XIVSearchResult extends XIVContentIndexItem {
   UrlType: XIVContentIndex
   _: Lowercase<XIVContentIndex>
   _Score: string

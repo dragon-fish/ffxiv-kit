@@ -1,3 +1,4 @@
+import { BoolNumber } from './Utilities'
 import { XIVActionData } from './XIVAction'
 import { XIVClassJobCategory, XIVClassJobData } from './XIVClassJob'
 import { XIVGamePatch } from './XIVGamePatch'
@@ -104,6 +105,15 @@ export interface XIVItemStats {
   HQ?: number
 }
 
+export interface XIVItemBonuse {
+  ID: number
+  Max: number
+  MaxHQ: number
+  Relative: boolean
+  Value: number
+  ValueHQ: number
+}
+
 export interface XIVItemData {
   AdditionalData: number
   Adjective: number
@@ -159,9 +169,10 @@ export interface XIVItemData {
   BaseParamValueSpecial3: number
   BaseParamValueSpecial4: number
   BaseParamValueSpecial5: number
+  Bonuses?: Record<string, XIVItemBonuse>
   Block: number
   BlockRate: number
-  CanBeHq: boolean
+  CanBeHq: BoolNumber
   CastTimeS: number
   ClassJobCategory: XIVClassJobCategory | null
   ClassJobCategoryTarget: 'ClassJobCategory'
@@ -188,7 +199,7 @@ export interface XIVItemData {
   Description_kr: unknown
   Desynth: number
   EquipRestriction: number
-  EquipSlotCategory: XIVItemEquipSlotCategory
+  EquipSlotCategory: XIVItemEquipSlotCategory | null
   EquipSlotCategoryTarget: 'EquipSlotCategory'
   EquipSlotCategoryTargetID: number
   FilterGroup: number
@@ -197,7 +208,7 @@ export interface XIVItemData {
       RewardItem0: number[]
     }
   }
-  GamePatch: XIVGamePatch
+  GamePatch?: XIVGamePatch
   GrandCompany: XIVGrandCompany | null
   GrandCompanyTarget: 'GrandCompany'
   GrandCompanyTargetID: number
@@ -205,15 +216,15 @@ export interface XIVItemData {
   Icon: string
   IconHD: string
   IconID: number
-  IsAdvancedMeldingPermitted: boolean
-  IsCollectable: boolean
-  IsCrestWorthy: boolean
-  IsDyeable: boolean
-  IsGlamourous: boolean
-  IsIndisposable: boolean
-  IsPvP: boolean
-  IsUnique: boolean
-  IsUntradable: boolean
+  IsAdvancedMeldingPermitted: BoolNumber
+  IsCollectable: BoolNumber
+  IsCrestWorthy: BoolNumber
+  IsDyeable: BoolNumber
+  IsGlamourous: BoolNumber
+  IsIndisposable: BoolNumber
+  IsPvP: BoolNumber
+  IsUnique: BoolNumber
+  IsUntradable: BoolNumber
   ItemAction: XIVActionData | null
   ItemActionTarget: 'ItemAction'
   ItemActionTargetID: number
@@ -277,7 +288,7 @@ export interface XIVItemData {
   Singular_ja: string
   StackSize: number
   StartsWithVowel: number
-  Stats: Record<string, XIVItemStats>
+  Stats?: Record<string, XIVItemStats>
   SubStatCategory: number
   Url: string
 }

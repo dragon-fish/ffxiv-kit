@@ -1277,3 +1277,10 @@ export type XIVContentIndexStandard =
 export type XIVContentIndex =
   | XIVContentIndexStandard
   | Lowercase<XIVContentIndexStandard>
+
+export interface XIVContentIndexItem {
+  ID: string
+  Icon: string
+  Name: string
+  Url: string
+}

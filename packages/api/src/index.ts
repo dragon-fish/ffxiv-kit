@@ -3,10 +3,13 @@ import {
   XIV_CONTENT_INDEXES,
   XIVContentIndexStandard,
   type XIVContentIndex,
+  XIVContentIndexItem,
 } from './types/XIVContent'
 import { XIVSearchParams, XIVSearchResponse } from './types/XIVSearch'
 import { XIVActionData } from './types/XIVAction'
 import { XIVItemData } from './types/XIVItem'
+import { XIVClassJobData } from './types/XIVClassJob'
+import { XIVPagination } from './types/XIVPagination'
 
 export class XIVApi {
   readonly XIV_CONTENT_INDEXES = [...XIV_CONTENT_INDEXES]
@@ -68,9 +71,18 @@ export class XIVApi {
       index: XIVContentIndex,
       page = 1,
       limit = 100
-    ): Promise<any> => {
+    ): Promise<{
+      Pagination: XIVPagination
+      Results: XIVContentIndexItem[]
+    }> => {
+      const standardIndex = this.standardizeContentIndex(index)
+      if (!standardIndex) {
+        throw new Error('Invalid index')
+      }
       return this.api
-        .get<XIVContentIndex[]>(`content/${index}`, { query: { page, limit } })
+        .get<XIVContentIndex[]>(`content/${standardIndex}`, {
+          query: { page, limit },
+        })
         .then(({ data }) => data as any)
     },
     get: async <T = any>(
@@ -87,10 +99,15 @@ export class XIVApi {
       return this.api.get(`${standardIndex}/${id}`).then(({ data }) => data)
     },
   }
+
+  // Sugar
   async action(id: number) {
-    return this.contents.get('action', id) as Promise<XIVActionData>
+    return this.contents.get<XIVActionData>('action', id)
+  }
+  async classJob(id: number) {
+    return this.contents.get<XIVClassJobData>('classjob', id)
   }
   async item(id: number) {
-    return this.contents.get('item', id) as Promise<XIVItemData>
+    return this.contents.get<XIVItemData>('item', id)
   }
 }

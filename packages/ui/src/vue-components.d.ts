@@ -7,8 +7,13 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    XIVAttrsGroup: typeof import('./components/Item/XIVAttrsGroup.vue')['default']
     XIVCard: typeof import('./components/XIVCard.vue')['default']
     XIVItem: typeof import('./components/Item/XIVItem.vue')['default']
+    XIVItemAutoload: typeof import('./components/Item/XIVItemAutoload.vue')['default']
+    XIVItemBaseParams: typeof import('./components/Item/XIVItemBaseParams.vue')['default']
+    XIVItemEquipSlot: typeof import('./components/Item/XIVItemEquipSlot.vue')['default']
+    XIVItemFoodParams: typeof import('./components/Item/XIVItemFoodParams.vue')['default']
     XIVItems: typeof import('./components/Item/XIVItems.vue')['default']
     XIVItemTitle: typeof import('./components/Item/XIVItemTitle.vue')['default']
   }
