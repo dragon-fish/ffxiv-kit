@@ -41,6 +41,8 @@ XIVCard.xiv-item
       v-if='item.ItemRepair && item.ClassJobRepair',
       v-bind='item'
     )
+    //- 道具警告
+    XIVItemWarnings(v-bind='item')
 </template>
 
 <script setup lang="ts">

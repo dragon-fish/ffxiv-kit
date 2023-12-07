@@ -21,6 +21,7 @@ const attrs = computed(() => {
     },
     {
       label: '修理材料',
+      // @ts-ignore                          ↓ 兼容性措施
       value: props.ItemRepair?.Item?.Name || props.ItemRepair?.Name,
     },
   ]

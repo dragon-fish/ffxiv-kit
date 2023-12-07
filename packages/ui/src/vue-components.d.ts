@@ -18,6 +18,7 @@ declare module 'vue' {
     XIVItemRepairParams: typeof import('./components/Item/XIVItemRepairParams.vue')['default']
     XIVItems: typeof import('./components/Item/XIVItems.vue')['default']
     XIVItemTitle: typeof import('./components/Item/XIVItemTitle.vue')['default']
+    XIVItemWarnings: typeof import('./components/Item/XIVItemWarnings.vue')['default']
     XIVMateriaSlot: typeof import('./components/Item/XIVMateriaSlot.vue')['default']
   }
 }

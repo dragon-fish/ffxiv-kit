@@ -29,9 +29,11 @@ import type { XIVItemData } from '@tomestone/api/dist/types/XIVItem'
 import {} from 'vue'
 const props = defineProps<XIVItemData>()
 
-const avaliableStats = computed(() => {
+const avaliableStats = computed<
+  { id: number; label: string; value: number | string }[]
+>(() => {
   if (!props) return []
-  const all: { id: number; label: string; value: number | string }[] = [
+  const all = [
     {
       id: 12,
       label: '物理基本性能',
@@ -78,7 +80,13 @@ const avaliableStats = computed(() => {
   return all.filter((stat) => stat.value)
 })
 
-const attrGroups = computed(() => {
+const attrGroups = computed<
+  {
+    cols: number
+    header?: string
+    attrs: { id?: number; label?: string; value?: number | string }[]
+  }[]
+>(() => {
   return [
     // 品级
     {
