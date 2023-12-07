@@ -1,4 +1,4 @@
-import { XIVAnimationEnd } from './XIVAnimation'
+import { XIVAnimationStart, XIVAnimationTimeline } from './XIVAnimation'
 import { XIVClassJobCategory, XIVClassJobData } from './XIVClassJob'
 import { XIVGamePatch } from './XIVGamePatch'
 import { XIVStatusData } from './XIVStatus'
@@ -11,29 +11,6 @@ export interface XIVActionCategory {
   Name_en: string
   Name_fr: string
   Name_ja: string
-}
-
-export interface XIVActionTimeline {
-  ActionTimelineIDMode: number
-  ID: number
-  IsLoop: number
-  IsMotionCanceledByMoving: number
-  Key: string
-  Key_chs: string
-  KillUpper: number
-  LoadType: number
-  LookAtMode: number
-  Pause: number
-  Priority: number
-  Resident: number
-  ResidentPap: number
-  Slot: number
-  Stance: number
-  StartAttach: number
-  Type: number
-  WeaponTimeline: null
-  WeaponTimelineTarget: string
-  WeaponTimelineTargetID: number
 }
 
 // TODO: Define XIVActionProcStatus type
@@ -49,23 +26,15 @@ export interface XIVActionData {
   ActionProcStatus: XIVActionProcStatus | null
   ActionProcStatusTarget: 'ActionProcStatus'
   ActionProcStatusTargetID: number
-  ActionTimelineHit: XIVActionTimeline | null
+  ActionTimelineHit: XIVAnimationTimeline | null
   ActionTimelineHitTarget: 'ActionTimeline'
   ActionTimelineHitTargetID: number
   AdditionalCooldownGroup: number
   AffectsPosition: number
-  AnimationEnd: XIVActionTimeline | null
+  AnimationEnd: XIVAnimationTimeline | null
   AnimationEndTarget: 'ActionTimeline'
   AnimationEndTargetID: number
-  AnimationStart: {
-    ID: number
-    Name: XIVActionTimeline
-    NameTarget: 'ActionTimeline'
-    NameTargetID: number
-    VFX: unknown
-    VFXTarget: 'VFX'
-    VFXTargetID: number
-  }
+  AnimationStart: XIVAnimationStart | null
   AnimationStartTarget: 'ActionCastTimeline'
   AnimationStartTargetID: number
   Aspect: number
@@ -98,6 +67,7 @@ export interface XIVActionData {
   Description_ja: string
   Description_kr: null
   EffectRange: number
+  // TODO: What is this?
   GameContentLinks: {
     EventItem?: {
       Action?: number[]

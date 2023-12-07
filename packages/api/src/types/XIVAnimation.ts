@@ -1,4 +1,4 @@
-export interface XIVAnimationEnd {
+export interface XIVAnimationTimeline {
   ActionTimelineIDMode: number
   ID: number
   IsLoop: number
@@ -19,4 +19,14 @@ export interface XIVAnimationEnd {
   WeaponTimeline: null
   WeaponTimelineTarget: string
   WeaponTimelineTargetID: number
+}
+
+export interface XIVAnimationStart {
+  ID: number
+  Name: XIVAnimationTimeline
+  NameTarget: 'ActionTimeline'
+  NameTargetID: number
+  VFX: unknown
+  VFXTarget: 'VFX'
+  VFXTargetID: number
 }
