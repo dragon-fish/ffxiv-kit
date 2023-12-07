@@ -2,7 +2,7 @@ import { Fexios, FexiosConfigs } from 'fexios'
 import {
   XIV_CONTENT_INDEXES,
   XIVContentIndexStandard,
-  type XIVContentIndex,
+  XIVContentIndex,
   XIVContentIndexItem,
 } from './types/XIVContent'
 import { XIVSearchParams, XIVSearchResponse } from './types/XIVSearch'

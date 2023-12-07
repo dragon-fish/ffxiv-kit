@@ -1,24 +1,33 @@
 {
   "name": "@ffxiv-kit/api",
   "version": "0.1.0",
-  "description": "",
+  "description": "An API wrapper for XIVAPI with full TypeScript support.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc"
+    "build": "tsc",
+    "prepublish": "npm run build"
   },
   "files": [
     "dist"
   ],
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "ffxiv",
+    "xiv",
+    "xivapi"
+  ],
+  "author": "Dragon-Fish <dragon-fish@qq.com>",
+  "license": "Apache-2.0",
   "dependencies": {
     "fexios": "^1.5.0"
   },
   "devDependencies": {
     "vite": "^5.0.4"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }
