@@ -3,7 +3,7 @@ import { XIVItemData } from './XIVItem'
 import { XIVMonsterNoteData } from './XIVMonsterNote'
 import { XIVQuestData } from './XIVQuest'
 
-export type XIVClassJobID =
+export type XIVClassJobAbbreviation =
   | 'ACN'
   | 'ADV'
   | 'ALC'
@@ -60,13 +60,13 @@ export type XIVClassJobCategory = {
   Name_en: string
   Name_fr: string
   Name_ja: string
-} & Record<XIVClassJobID, number>
+} & Record<XIVClassJobAbbreviation, number>
 
 export interface XIVClassJobData {
-  Abbreviation: XIVClassJobID
-  Abbreviation_chs: XIVClassJobID
+  Abbreviation: XIVClassJobAbbreviation
+  Abbreviation_chs: XIVClassJobAbbreviation
   Abbreviation_de: string
-  Abbreviation_en: XIVClassJobID
+  Abbreviation_en: XIVClassJobAbbreviation
   Abbreviation_fr: string
   Abbreviation_ja: string
   BattleClassIndex: number
@@ -74,7 +74,7 @@ export interface XIVClassJobData {
   ClassJobCategory: XIVClassJobCategory
   ClassJobCategoryTarget: 'ClassJobCategory'
   ClassJobCategoryTargetID: number
-  ClassJobParent: XIVClassJobCategory | null
+  ClassJobParent: XIVClassJobData | null
   ClassJobParentTarget: 'ClassJob'
   ClassJobParentTargetID: number
   DohDolJobIndex: number
