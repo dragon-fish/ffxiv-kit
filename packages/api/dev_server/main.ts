@@ -1,16 +1,23 @@
 import { XIVApi } from '../src/index.js'
 
-console.info('hello, world')
+declare global {
+  interface Window {
+    xiv: XIVApi
+    hljs: any
+  }
+}
 
 const api = new XIVApi()
-// @ts-ignore
 window.xiv = api
 
 // main
 ;(async () => {
   const printResult = (data: any) => {
     console.log(data)
-    document.getElementById('result')!.innerText = JSON.stringify(data, null, 2)
+    const code = JSON.stringify(data, null, 2)
+    const block = document.getElementById('result') as HTMLElement
+    const result = window.hljs.highlight(code, { language: 'json' })
+    block.innerHTML = result.value
   }
 
   document.body.addEventListener('click', async (e) => {
@@ -69,10 +76,15 @@ window.xiv = api
           })
         break
       case 'content':
-        ;(indexes
-          ? api.contents.get(indexes as any, value ? (value as any) : undefined)
-          : api.contents.indexes()
-        )
+        let request: Promise<any>
+        if (indexes && value) {
+          request = api.contents.get(indexes as any, value as any)
+        } else if (indexes) {
+          request = api.contents.list(indexes as any)
+        } else {
+          request = api.contents.indexes()
+        }
+        request
           .then((data) => {
             printResult(data)
           })

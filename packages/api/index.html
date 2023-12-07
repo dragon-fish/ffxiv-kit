@@ -6,6 +6,13 @@
     <title>@ffxiv-kit/api</title>
   </head>
   <body>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/atom-one-dark.min.css"
+    />
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/highlight.min.js"></script>
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/languages/json.min.js"></script>
+
     <script type="module" src="dev_server/main.ts"></script>
 
     <form id="search_form">
@@ -34,7 +41,9 @@
       <input type="submit" value="提交" />
     </form>
 
-    <pre id="result"></pre>
+    <pre>
+      <code id="result" class="hljs lang-json" style="font-family: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;"></code>
+    </pre>
 
     <style>
       body {
