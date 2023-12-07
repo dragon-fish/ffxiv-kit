@@ -1,6 +1,7 @@
 import { XIVAnimationEnd } from './XIVAnimation'
-import { XIVClassJobCategory } from './XIVClassJobCategory'
+import { XIVClassJobCategory, XIVClassJobData } from './XIVClassJob'
 import { XIVGamePatch } from './XIVGamePatch'
+import { XIVStatusData } from './XIVStatus'
 
 export interface XIVActionCategory {
   ID: number
@@ -12,7 +13,7 @@ export interface XIVActionCategory {
   Name_ja: string
 }
 
-export interface XIVActionTimelineHit {
+export interface XIVActionTimeline {
   ActionTimelineIDMode: number
   ID: number
   IsLoop: number
@@ -35,49 +36,61 @@ export interface XIVActionTimelineHit {
   WeaponTimelineTargetID: number
 }
 
+// TODO: Define XIVActionProcStatus type
+export type XIVActionProcStatus = unknown
+
 export interface XIVActionData {
   ActionCategory: XIVActionCategory
-  ActionCategoryTarget: string
+  ActionCategoryTarget: 'ActionCategory'
   ActionCategoryTargetID: number
-  ActionCombo: null
-  ActionComboTarget: string
-  ActionComboTargetID: number
-  ActionProcStatus: null
-  ActionProcStatusTarget: string
+  ActionCombo: XIVActionData | null
+  ActionComboTarget: 'Action'
+  ActionComboTargetID: 0
+  ActionProcStatus: XIVActionProcStatus | null
+  ActionProcStatusTarget: 'ActionProcStatus'
   ActionProcStatusTargetID: number
-  ActionTimelineHit: XIVActionTimelineHit
-  ActionTimelineHitTarget: string
+  ActionTimelineHit: XIVActionTimeline | null
+  ActionTimelineHitTarget: 'ActionTimeline'
   ActionTimelineHitTargetID: number
   AdditionalCooldownGroup: number
   AffectsPosition: number
-  AnimationEnd: XIVAnimationEnd
-  AnimationEndTarget: string
+  AnimationEnd: XIVActionTimeline | null
+  AnimationEndTarget: 'ActionTimeline'
   AnimationEndTargetID: number
-  AnimationStart: null
-  AnimationStartTarget: string
+  AnimationStart: {
+    ID: number
+    Name: XIVActionTimeline
+    NameTarget: 'ActionTimeline'
+    NameTargetID: number
+    VFX: unknown
+    VFXTarget: 'VFX'
+    VFXTargetID: number
+  }
+  AnimationStartTarget: 'ActionCastTimeline'
   AnimationStartTargetID: number
   Aspect: number
-  AttackType: null
-  AttackTypeTarget: string
+  // TODO: Define XIVAttackType type
+  AttackType: unknown
+  AttackTypeTarget: 'AttackType'
   AttackTypeTargetID: number
   BehaviourType: number
-  CanTargetDead: number
-  CanTargetFriendly: number
-  CanTargetHostile: number
-  CanTargetParty: number
-  CanTargetSelf: number
+  CanTargetDead: boolean
+  CanTargetFriendly: boolean
+  CanTargetHostile: boolean
+  CanTargetParty: boolean
+  CanTargetSelf: boolean
   Cast100ms: number
   CastType: number
-  ClassJob: null
+  ClassJob: XIVClassJobData | null
   ClassJobCategory: XIVClassJobCategory
-  ClassJobCategoryTarget: string
+  ClassJobCategoryTarget: 'ClassJobCategory'
   ClassJobCategoryTargetID: number
   ClassJobLevel: number
-  ClassJobTarget: string
+  ClassJobTarget: 'ClassJob'
   ClassJobTargetID: number
   CooldownGroup: number
   Description: string
-  DescriptionJSON_kr: null
+  DescriptionJSON_kr: unknown
   Description_chs: string
   Description_de: string
   Description_en: string
@@ -86,14 +99,11 @@ export interface XIVActionData {
   Description_kr: null
   EffectRange: number
   GameContentLinks: {
-    GeneralAction: {
-      Action: number[]
+    EventItem?: {
+      Action?: number[]
     }
-    PvPActionSort: {
-      Action: string[]
-    }
-    Quest: {
-      SystemReward1: number[]
+    PvPActionSort?: {
+      Action?: number[]
     }
   }
   GamePatch: XIVGamePatch
@@ -101,9 +111,9 @@ export interface XIVActionData {
   Icon: string
   IconHD: string
   IconID: number
-  IsPlayerAction: number
-  IsPvP: number
-  IsRoleAction: number
+  IsPlayerAction: boolean
+  IsPvP: boolean
+  IsRoleAction: boolean
   MaxCharges: number
   Name: string
   Name_chs: string
@@ -111,8 +121,9 @@ export interface XIVActionData {
   Name_en: string
   Name_fr: string
   Name_ja: string
-  Omen: null
-  OmenTarget: string
+  // TODO: Define XIVOmen type
+  Omen: unknown
+  OmenTarget: 'Omen'
   OmenTargetID: number
   Patch: number
   PreservesCombo: number
@@ -122,14 +133,14 @@ export interface XIVActionData {
   Recast100ms: number
   SecondaryCostType: number
   SecondaryCostValue: number
-  StatusGainSelf: null
-  StatusGainSelfTarget: string
+  StatusGainSelf: XIVStatusData
+  StatusGainSelfTarget: 'Status'
   StatusGainSelfTargetID: number
   TargetArea: number
   UnlockLink: number
   Url: string
-  VFX: null
-  VFXTarget: string
+  VFX: unknown
+  VFXTarget: 'ActionCastVFX'
   VFXTargetID: number
   XAxisModifier: number
 }

@@ -1,41 +1,86 @@
+import { XIVActionData } from './XIVAction'
+import { XIVClassJobCategory, XIVClassJobData } from './XIVClassJob'
 import { XIVGamePatch } from './XIVGamePatch'
+import { XIVGrandCompany } from './XIVGrandCompany'
 
 export interface XIVBaseParam {
-  BaseParam?: any
-  BaseParamTarget: string
-  BaseParamTargetID: number
+  '1HWpn%': number
+  '2HWpn%': number
+  'Bracelet%': number
+  'Chest%': number
+  'ChestHead%': number
+  'ChestHeadLegsFeet%': number
+  'ChestLegsFeet%': number
+  'ChestLegsGloves%': number
+  Description: string
+  Description_chs: string
+  Description_de: string
+  Description_en: string
+  Description_fr: string
+  Description_ja: string
+  'Earring%': number
+  'Feet%': number
+  'Hands%': number
+  'Head%': number
+  'HeadChestHandsLegsFeet%': number
+  ID: number
+  'Legs%': number
+  'LegsFeet%': number
+  MeldParam0: number
+  MeldParam1: number
+  MeldParam10: number
+  MeldParam11: number
+  MeldParam12: number
+  MeldParam2: number
+  MeldParam3: number
+  MeldParam4: number
+  MeldParam5: number
+  MeldParam6: number
+  MeldParam7: number
+  MeldParam8: number
+  MeldParam9: number
+  Name: string
+  Name_chs: string
+  Name_de: string
+  Name_en: string
+  Name_fr: string
+  Name_ja: string
+  'Necklace%': number
+  'OH%': number
+  OrderPriority: number
+  PacketIndex: number
+  'Ring%': number
+  'UnderArmor%': number
+  'Waist%': number
 }
 
-export interface XIVDescriptionJSON {
-  DescriptionJSON: string[]
-  DescriptionJSON_chs?: string[]
-  DescriptionJSON_de?: string[]
-  DescriptionJSON_en?: string[]
-  DescriptionJSON_fr?: string[]
-  DescriptionJSON_ja?: string[]
-  DescriptionJSON_kr?: string[]
+export interface XIVItemEquipSlotCategory {
+  Body: number
+  Ears: number
+  Feet: number
+  FingerL: number
+  FingerR: number
+  Gloves: number
+  Head: number
+  ID: number
+  Legs: number
+  MainHand: number
+  Neck: number
+  OffHand: number
+  SoulCrystal: number
+  Waist: number
+  Wrists: number
 }
 
-export interface XIVGameContentLink {
-  Item?: number[]
-  Item0?: number[]
-  Item1?: number[]
-  Item3?: number[]
-  ItemCatalyst0?: number[]
-  ItemCatalyst1?: number[]
-  ItemIngredient8?: number[]
-  ItemIngredient9?: number[]
-  ItemReceive40?: number[]
-}
-
-export interface XIVGameContentLinks {
-  GardeningSeed?: XIVGameContentLink
-  GatheringItem?: XIVGameContentLink
-  LeveRewardItemGroup?: XIVGameContentLink
-  Quest?: XIVGameContentLink
-  Recipe?: XIVGameContentLink
-  RetainerTaskNormal?: XIVGameContentLink
-  SpecialShop?: XIVGameContentLink
+export interface XIVItemKind {
+  ID: number
+  Name: string
+  Name_chs: string
+  Name_de: string
+  Name_en: string
+  Name_fr: string
+  Name_ja: string
+  Name_kr: string
 }
 
 export interface XIVItemUICategory {
@@ -49,8 +94,14 @@ export interface XIVItemUICategory {
   Name_en: string
   Name_fr: string
   Name_ja: string
-  OrderMajor?: number
-  OrderMinor?: number
+  OrderMajor: number
+  OrderMinor: number
+}
+
+export interface XIVItemStats {
+  ID: number
+  NQ: number
+  HQ?: number
 }
 
 export interface XIVItemData {
@@ -59,19 +110,43 @@ export interface XIVItemData {
   AetherialReduce: number
   AlwaysCollectable: number
   Article: number
-  BaseParam0: XIVBaseParam
-  BaseParam1: XIVBaseParam
-  BaseParam2: XIVBaseParam
-  BaseParam3: XIVBaseParam
-  BaseParam4: XIVBaseParam
-  BaseParam5: XIVBaseParam
+  BaseParam0: XIVBaseParam | null
+  BaseParam0Target: 'BaseParam'
+  BaseParam0TargetID: number
+  BaseParam1: XIVBaseParam | null
+  BaseParam1Target: 'BaseParam'
+  BaseParam1TargetID: number
+  BaseParam2: XIVBaseParam | null
+  BaseParam2Target: 'BaseParam'
+  BaseParam2TargetID: number
+  BaseParam3: XIVBaseParam | null
+  BaseParam3Target: 'BaseParam'
+  BaseParam3TargetID: number
+  BaseParam4: XIVBaseParam | null
+  BaseParam4Target: 'BaseParam'
+  BaseParam4TargetID: number
+  BaseParam5: XIVBaseParam | null
+  BaseParam5Target: 'BaseParam'
+  BaseParam5TargetID: number
   BaseParamModifier: number
-  BaseParamSpecial0: XIVBaseParam
-  BaseParamSpecial1: XIVBaseParam
-  BaseParamSpecial2: XIVBaseParam
-  BaseParamSpecial3: XIVBaseParam
-  BaseParamSpecial4: XIVBaseParam
-  BaseParamSpecial5: XIVBaseParam
+  BaseParamSpecial0: XIVBaseParam | null
+  BaseParamSpecial0Target: 'BaseParam'
+  BaseParamSpecial0TargetID: number
+  BaseParamSpecial1: XIVBaseParam | null
+  BaseParamSpecial1Target: 'BaseParam'
+  BaseParamSpecial1TargetID: number
+  BaseParamSpecial2: XIVBaseParam | null
+  BaseParamSpecial2Target: 'BaseParam'
+  BaseParamSpecial2TargetID: number
+  BaseParamSpecial3: XIVBaseParam | null
+  BaseParamSpecial3Target: 'BaseParam'
+  BaseParamSpecial3TargetID: number
+  BaseParamSpecial4: XIVBaseParam | null
+  BaseParamSpecial4Target: 'BaseParam'
+  BaseParamSpecial4TargetID: number
+  BaseParamSpecial5: XIVBaseParam | null
+  BaseParamSpecial5Target: 'BaseParam'
+  BaseParamSpecial5TargetID: number
   BaseParamValue0: number
   BaseParamValue1: number
   BaseParamValue2: number
@@ -86,16 +161,16 @@ export interface XIVItemData {
   BaseParamValueSpecial5: number
   Block: number
   BlockRate: number
-  CanBeHq: number
+  CanBeHq: boolean
   CastTimeS: number
-  ClassJobCategory?: any
-  ClassJobCategoryTarget: string
+  ClassJobCategory: XIVClassJobCategory | null
+  ClassJobCategoryTarget: 'ClassJobCategory'
   ClassJobCategoryTargetID: number
-  ClassJobRepair?: any
-  ClassJobRepairTarget: string
+  ClassJobRepair: XIVClassJobData | null
+  ClassJobRepairTarget: 'ClassJob'
   ClassJobRepairTargetID: number
-  ClassJobUse?: any
-  ClassJobUseTarget: string
+  ClassJobUse: XIVClassJobData | null
+  ClassJobUseTarget: 'ClassJob'
   ClassJobUseTargetID: number
   CooldownS: number
   DamageMag: number
@@ -104,66 +179,74 @@ export interface XIVItemData {
   DefensePhys: number
   DelayMs: number
   Description: string
+  DescriptionJSON_kr: unknown
   Description_chs: string
   Description_de: string
   Description_en: string
   Description_fr: string
   Description_ja: string
-  Description_kr?: string
+  Description_kr: unknown
   Desynth: number
   EquipRestriction: number
-  EquipSlotCategory?: any
-  EquipSlotCategoryTarget: string
+  EquipSlotCategory: XIVItemEquipSlotCategory
+  EquipSlotCategoryTarget: 'EquipSlotCategory'
   EquipSlotCategoryTargetID: number
   FilterGroup: number
-  GameContentLinks: XIVGameContentLinks
+  GameContentLinks: {
+    QuestClassJobReward?: {
+      RewardItem0: number[]
+    }
+  }
   GamePatch: XIVGamePatch
-  GrandCompany?: any
-  GrandCompanyTarget: string
+  GrandCompany: XIVGrandCompany | null
+  GrandCompanyTarget: 'GrandCompany'
   GrandCompanyTargetID: number
   ID: number
   Icon: string
   IconHD: string
   IconID: number
-  IsAdvancedMeldingPermitted: number
-  IsCollectable: number
-  IsCrestWorthy: number
-  IsDyeable: number
-  IsGlamourous: number
-  IsIndisposable: number
-  IsPvP: number
-  IsUnique: number
-  IsUntradable: number
-  ItemAction?: any
-  ItemActionTarget: string
+  IsAdvancedMeldingPermitted: boolean
+  IsCollectable: boolean
+  IsCrestWorthy: boolean
+  IsDyeable: boolean
+  IsGlamourous: boolean
+  IsIndisposable: boolean
+  IsPvP: boolean
+  IsUnique: boolean
+  IsUntradable: boolean
+  ItemAction: XIVActionData | null
+  ItemActionTarget: 'ItemAction'
   ItemActionTargetID: number
-  ItemGlamour?: any
-  ItemGlamourTarget: string
+  ItemGlamour: XIVItemData | null
+  ItemGlamourTarget: 'Item'
   ItemGlamourTargetID: number
-  ItemKind: any
-  ItemRepair?: any
-  ItemRepairTarget: string
+  ItemKind: XIVItemKind
+  ItemRepair: XIVItemData | null
+  ItemRepairTarget: 'ItemRepairResource'
   ItemRepairTargetID: number
-  ItemSearchCategory: XIVItemUICategory
-  ItemSearchCategoryTarget: string
+  ItemSearchCategory: unknown
+  ItemSearchCategoryTarget: 'ItemSearchCategory'
   ItemSearchCategoryTargetID: number
-  ItemSeries?: any
-  ItemSeriesTarget: string
+  ItemSeries: unknown
+  ItemSeriesTarget: 'ItemSeries'
   ItemSeriesTargetID: number
-  ItemSortCategory: any
-  ItemSortCategoryTarget: string
+  ItemSortCategory: {
+    ID: number
+    Param: number
+  }
+  ItemSortCategoryTarget: 'ItemSortCategory'
   ItemSortCategoryTargetID: number
-  ItemSpecialBonus?: any
+  ItemSpecialBonus: unknown
   ItemSpecialBonusParam: number
-  ItemSpecialBonusTarget: string
+  ItemSpecialBonusTarget: 'ItemSpecialBonus'
   ItemSpecialBonusTargetID: number
-  ItemUICategory: XIVItemUICategory
-  ItemUICategoryTarget: string
+  ItemUICategory: XIVItemUICategory | null
+  ItemUICategoryTarget: 'ItemUICategory'
   ItemUICategoryTargetID: number
   LevelEquip: number
   LevelItem: number
   Lot: number
-  Materia?: any
+  Materia: unknown
   MateriaSlotCount: number
   MaterializeType: number
   ModelMain: string
@@ -194,6 +277,7 @@ export interface XIVItemData {
   Singular_ja: string
   StackSize: number
   StartsWithVowel: number
+  Stats: Record<string, XIVItemStats>
   SubStatCategory: number
   Url: string
 }

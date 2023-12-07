@@ -12,7 +12,7 @@ import {} from 'vue'
 .xiv-card
   color: #dedede
   font-size: 16px
-  background: linear-gradient(to bottom, #666 0%, #333 4%)
+  background: linear-gradient(to bottom, #666 0%, #333 1.5em)
   border: 2px solid #bbac94
   box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.2)
   border-radius: 0.5em
