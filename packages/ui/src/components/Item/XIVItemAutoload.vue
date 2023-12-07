@@ -10,7 +10,7 @@ XIVItem(
 <script setup lang="ts">
 import type { XIVItemData } from '@ffxiv-kit/api/dist/types/XIVItem'
 
-const api = useXIVApi()
+const x = useXIVApi()
 const props = withDefaults(
   defineProps<{
     itemId?: number
@@ -55,16 +55,16 @@ function reset() {
 
 async function fetchItemData() {
   if (props.itemId) {
-    return api.api.item(props.itemId)
+    return x.api.item(props.itemId)
   } else if (props.itemName) {
-    return api.api
+    return x.api
       .search(props.itemName, {
         indexes: ['item'],
         limit: 1,
       })
       .then(({ Results }) => {
         if (Results.length) {
-          return api.api.item(+Results[0].ID)
+          return x.api.item(+Results[0].ID)
         }
       })
   }

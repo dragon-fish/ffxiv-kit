@@ -12,7 +12,7 @@ XIVCard.xiv-item
     //- 道具名称标题
     .item-title.flex.gap-2
       .item-title__icon.leading-0
-        img(:src='api.assetPath(item.Icon)', w='10', h='10')
+        img(:src='x.assetPath(item.Icon)', w='10', h='10')
       .item-title__desc.leading-5
         h3.item-title__name(
           m='0',
@@ -56,7 +56,7 @@ XIVCard.xiv-item
 import {} from 'vue'
 import type { XIVItemData } from '@ffxiv-kit/api/dist/types/XIVItem'
 
-const api = useXIVApi()
+const x = useXIVApi()
 
 const props = withDefaults(
   defineProps<{
