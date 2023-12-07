@@ -20,6 +20,7 @@
           bg='[--xiv-attr-label-color]',
           opacity-50
         )
+  //- @ts-ignore
   XIVAttrsGroup(v-for='i in attrGroups', v-bind='i')
 </template>
 
@@ -44,7 +45,7 @@ const avaliableStats = computed(() => {
     {
       id: 14,
       label: '自动攻击间隔',
-      value: `${props.DelayMs / 1000}s`,
+      value: props.DelayMs ? `${props.DelayMs / 1000}s` : 0,
     },
     {
       id: 17,

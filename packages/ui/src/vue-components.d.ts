@@ -14,7 +14,10 @@ declare module 'vue' {
     XIVItemBaseParams: typeof import('./components/Item/XIVItemBaseParams.vue')['default']
     XIVItemEquipSlot: typeof import('./components/Item/XIVItemEquipSlot.vue')['default']
     XIVItemFoodParams: typeof import('./components/Item/XIVItemFoodParams.vue')['default']
+    XIVItemMateriaSlot: typeof import('./components/Item/XIVItemMateriaSlot.vue')['default']
+    XIVItemRepairParams: typeof import('./components/Item/XIVItemRepairParams.vue')['default']
     XIVItems: typeof import('./components/Item/XIVItems.vue')['default']
     XIVItemTitle: typeof import('./components/Item/XIVItemTitle.vue')['default']
+    XIVMateriaSlot: typeof import('./components/Item/XIVMateriaSlot.vue')['default']
   }
 }

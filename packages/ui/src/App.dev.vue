@@ -29,12 +29,14 @@ async function init() {
   })
 
   itemList.value = await Promise.all(
-    [...searchResults, { ID: 24280 }, { ID: 24637 }].map(({ ID }) => {
-      return api.api.item(+ID).catch((e) => {
-        error.value = e
-        return undefined as any
-      })
-    })
+    [...searchResults, { ID: 23783 }, { ID: 24280 }, { ID: 24637 }].map(
+      ({ ID }) => {
+        return api.api.item(+ID).catch((e) => {
+          error.value = e
+          return undefined as any
+        })
+      }
+    )
   )
 }
 </script>

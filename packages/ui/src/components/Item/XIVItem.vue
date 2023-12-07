@@ -25,11 +25,22 @@ XIVCard.xiv-item
     //- 可装备道具主属性
     XIVItemEquipSlot(v-if='item.EquipSlotCategory', v-bind='item')
     //- 道具简介
-    XIVAttrsGroup(v-if='item.Description', :attrs='[{ value: item.Description }]' :cols='1')
+    XIVAttrsGroup(
+      v-if='item.Description',
+      :attrs='[{ value: item.Description }]',
+      :cols='1'
+    )
     //- 可装备道具副属性
     XIVItemBaseParams(v-if='item.BaseParam0', v-bind='item')
     //- 可食用道具副属性
     XIVItemFoodParams(v-if='item.Bonuses', v-bind='item')
+    //- 魔晶石工艺
+    XIVItemMateriaSlot(v-if='item.MateriaSlotCount', v-bind='item')
+    //- 制作&修理
+    XIVItemRepairParams(
+      v-if='item.ItemRepair && item.ClassJobRepair',
+      v-bind='item'
+    )
 </template>
 
 <script setup lang="ts">

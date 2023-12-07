@@ -232,7 +232,12 @@ export interface XIVItemData {
   ItemGlamourTarget: 'Item'
   ItemGlamourTargetID: number
   ItemKind: XIVItemKind
-  ItemRepair: XIVItemData | null
+  ItemRepair: {
+    ID: number
+    Item: XIVItemData
+    ItemTarget: 'Item'
+    ItemTargetID: number
+  } | null
   ItemRepairTarget: 'ItemRepairResource'
   ItemRepairTargetID: number
   ItemSearchCategory: unknown

@@ -10,6 +10,8 @@ Yet another FF:XIV Toolkit for web pages.
 
 **This project:** Apache License 2.0
 
+**Data structure reference:** CafeKit https://github.com/thewakingsands/cafe-kit
+
 > Copyright 2023 机智的小鱼君 (A.K.A. Dragon-Fish)
 >
 > Licensed under the Apache License, Version 2.0 (the "License");<br>
